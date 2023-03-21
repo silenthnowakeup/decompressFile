@@ -12,7 +12,7 @@ int findPositions(FILE* compressFile)
     int pos = 0;
     while (count<2) {
         fseek(compressFile, -1 - pos, SEEK_END);
-        char c = fgetc(compressFile);
+        int c = fgetc(compressFile);
         if (c == '$'){
             count++;
         }
@@ -31,7 +31,7 @@ void printCompressedFile(FILE* file, FILE* compressedFile, char* wordA, char* wo
             break;
         }
 
-        int len = strlen(word);
+        int len = (int)strlen(word);
         if (ispunct(word[len - 1])) {
             char lastChar = word[len - 1];
             word[len - 1] = '\0'; // жестко убирает знак препинания
