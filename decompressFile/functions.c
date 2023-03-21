@@ -25,7 +25,7 @@ int findPositions(FILE* compressFile)
 void printCompressedFile(FILE* file, FILE* compressedFile, char* wordA, char* wordB) {
     char* word = (char*)calloc(16,sizeof(char));
     printf("\nWordA::%s, WordB::%s", wordA, wordB);
-    while (fscanf(file, "%s", word) == 1) {
+    while (fscanf(file, "%16s", word) == 1) {
 
         if (strstr(word, "$") != NULL) {
             break;
@@ -52,6 +52,7 @@ void printCompressedFile(FILE* file, FILE* compressedFile, char* wordA, char* wo
             }
         }
     }
+    free(word);
     fseek(compressedFile,0,SEEK_END);
     ftruncate(fileno(compressedFile), ftell(compressedFile) - 1);
 }
