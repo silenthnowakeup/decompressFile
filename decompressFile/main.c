@@ -18,7 +18,7 @@ int main() {
 
     int pos = findPositions(compressFile);
     fseek(compressFile, fileSize - pos, SEEK_SET);
-    if (fscanf(compressFile, "$%s $%s", word1, word2) == 2) {
+    if (fscanf(compressFile, "$%16s $%4s", word1, word2) == 2) {
         printf("read word: %s and %s\n", word1, word2);
     }
     fseek(compressFile,0,SEEK_SET);
