@@ -11,9 +11,9 @@
 #ifndef DECOMPRESSFILE_FUNCTIONS_H
 #define DECOMPRESSFILE_FUNCTIONS_H
 
-int findPositions(FILE*);
-void printCompressedFile(FILE*, FILE*, char*, char*);
-
+void readWordsFromFile(FILE*, char***, char***, int*);
+void printCompressedFile(FILE*,FILE*,char**,char**,int);
+int printWordLengths(char**, int);
 
 
 #endif //DECOMPRESSFILE_FUNCTIONS_H
